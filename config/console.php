@@ -13,6 +13,20 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
+    'controllerMap' => [
+        'batch' => [
+            'class' => 'schmunk42\giiant\commands\BatchController',
+            'overwrite' => true,
+            'modelNamespace' => 'app\models',
+            'crudTidyOutput' => false,
+            'interactive' => false,
+            'enableI18N' => false,
+            'skipTables' => ['system_db_migration', 'system_rbac_migration', 'migration'],
+            'modelQueryNamespace' => 'app\models\query',
+            'modelBaseClass' =>  yii\db\ActiveRecord::class,
+            'modelQueryBaseClass' => yii\db\ActiveQuery::class,
+        ]
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
